@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'eshop',
 ]
 
 MIDDLEWARE = [
@@ -74,10 +75,16 @@ WSGI_APPLICATION = 'module3.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'module3_db',
+        'USER': 'shopuser',
+        'PASSWORD': 'shopuser',
+        'HOST': 'localhost',
+        'PORT': '5432',
     }
 }
+
+AUTH_USER_MODEL = 'eshop.User'
 
 
 # Password validation
