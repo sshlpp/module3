@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block content %}
+  <div style="padding: 30px; display: flex; flex-direction: column; ">
+    {% for product in products %}
+      <div style="display: flex; flex-direction: column; align-items: center; width: 300px; border: 1px solid black; margin-bottom: 10px; padding: 5px;">
+        <span>{{ product.name }}</span>
+        <span> {{ product.description }} </span>
+        <span>{{ product.price }}</span>
+        {% if user.is_authenticated %}
+          <button style="margin-top: 10px; padding: 5px 10px; background-color: green; color: white; border: none; cursor: pointer;">
+            Buy
+          </button>
+        {% endif %}
+      </div> 
+    {% empty %}
+      <span>Нет товаров в магазине</span>
+    {% endfor %}
+  </div>
+{% endblock %}
