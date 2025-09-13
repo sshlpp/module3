@@ -5,9 +5,23 @@
 </head>
 <body>
     <h1>Регистрация</h1>
-    <form method="post">
-        {% csrf_token %}
-        {{ form }}
-        <button type="submit">Зарегистрироваться</button>
-    </form>
+    <form method="post" class="regForm">
+    {% csrf_token %}
+    <div class="usernameInput">
+      {{ form.username.label_tag }} {{ form.username }} {{ form.username.errors }}
+    </div>
+    <div class="passInput">
+      {{ form.password1.label_tag }} {{ form.password1 }} {{ form.password1.errors }}
+    </div>
+    <div class="passInput">
+      {{ form.password2.label_tag }} {{ form.password2 }} {{ form.password2.errors }}
+    </div>
+    <input type="submit" value="Register" />
+    {% if form.errors %}
+    <div style="color: red;">
+        {{ form.errors }}
+    </div>
+{% endif %}
+</form>
+    <span>Already have an account?</span>
 </body>

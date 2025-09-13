@@ -21,5 +21,6 @@ from eshop.views import MainPageView, RegistrationView
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', MainPageView.as_view(), name="main"),
-    path('registration/', RegistrationView.as_view()),
+    path('registration/', RegistrationView.as_view(), name="registration"),
+    path('login/', RegistrationView.as_view(), name="login"),
 ]
