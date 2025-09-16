@@ -20,6 +20,6 @@ class RegistrationForm(UserCreationForm):
                 "placeholder": "Confirm your password"
             }),
         }
-    def clean_password2(self):
-        password2 = self.cleaned_data.get("password1")
-        return password2
+    # def clean_password2(self):
+    #     password2 = self.cleaned_data.get("password1")
+    #     return password2
