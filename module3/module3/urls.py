@@ -16,7 +16,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from eshop.views import MainPageView, RegistrationView
+from eshop.views import MainPageView, PurchaseView, RegistrationView
 from django.contrib.auth.views import LoginView, LogoutView
 
 urlpatterns = [
@@ -25,4 +25,5 @@ urlpatterns = [
     path('registration/', RegistrationView.as_view(), name="registration"),
     path('login/', LoginView.as_view(template_name="login.html"), name="login"),
     path('logout/', LogoutView.as_view(), name="logout"),
+    path('purchase/<int:pk>/', PurchaseView.as_view(), name="purchase")
 ]

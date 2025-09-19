@@ -2,11 +2,15 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>Store</title>
+    <title>
+      {% block title %}
+        E-Shop
+      {% endblock %}
+    </title>
   </head>
   <body>
     <nav style="display: flex; justify-content: space-around; background-color: lightgray; padding: 10px;">
-      <a href="">Store</a>
+      <a href="{% url 'main' %}">Store</a>
       {% if user.is_authenticated %}
         <a href="">Корзина</a>
         <a href="">Баланс: {{ user.wallet }} червонцев</a>

@@ -1,6 +1,6 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
-from .models import User
+from .models import Purchase, User
 
 class RegistrationForm(UserCreationForm):
     class Meta:
@@ -20,6 +20,15 @@ class RegistrationForm(UserCreationForm):
                 "placeholder": "Confirm your password"
             }),
         }
-    # def clean_password2(self):
-    #     password2 = self.cleaned_data.get("password1")
-    #     return password2
+
+class PurchaseForm(forms.ModelForm):
+    class Meta:
+        model = Purchase
+        fields = ['quantity']
+        widgets = {
+            'quantity': forms.NumberInput(attrs={ 
+                'class': 'purchase-input',
+                'min': 1,
+                'placeholder': 'Введите количество'
+            })
+        }
