@@ -25,5 +25,5 @@ urlpatterns = [
     path('registration/', RegistrationView.as_view(), name="registration"),
     path('login/', LoginView.as_view(template_name="login.html"), name="login"),
     path('logout/', LogoutView.as_view(), name="logout"),
-    path('purchase/<int:pk>/', PurchaseView.as_view(), name="purchase")
+    path('purchase/<int:pk>/', PurchaseView.as_view(), name="purchase"),
 ]

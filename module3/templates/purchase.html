@@ -7,6 +7,13 @@
 {% block content %}
     <div style="display: flex; flex-direction: column; align-items: center; padding: 30px;">
         <h1>{{product.name}}</h1>
-    
+        <p>{{product.description}}</p>
+        <p>Price: {{product.price}}</p>
+        <form style="display: flex; flex-direction: column; align-items: center;" method="post" class="purchaseForm">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit" value="Купить" />
+        </form>
     </div>
+    
 {% endblock %}
